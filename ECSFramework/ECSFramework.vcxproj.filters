@@ -13,5 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\EngineFiles">
+      <UniqueIdentifier>{153247c7-ca0f-4627-b3bd-c75182d04702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProjectFiles">
+      <UniqueIdentifier>{72247b93-cea3-412c-ae5c-ece6d2db2090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProjectFiles\Components">
+      <UniqueIdentifier>{b0bc873e-d22b-415b-b08f-c285349aad06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProjectFiles\Systems">
+      <UniqueIdentifier>{2328b91d-9ae4-4f08-a6b4-104efddad6a9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentManager.h">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemManager.h">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineConstants.h">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLoop.h">
+      <Filter>Source Files\ProjectFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="TextComponent.h">
+      <Filter>Source Files\ProjectFiles\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSystem.h">
+      <Filter>Source Files\ProjectFiles\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="IComponentManager.h">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ISystem.h">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLoop.cpp">
+      <Filter>Source Files\ProjectFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSystem.cpp">
+      <Filter>Source Files\ProjectFiles\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemManager.cpp">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ISystem.cpp">
+      <Filter>Source Files\EngineFiles</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

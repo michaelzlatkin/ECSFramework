@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -115,6 +116,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentManager.h" />
+    <ClInclude Include="EngineConstants.h" />
+    <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="IComponentManager.h" />
+    <ClInclude Include="ISystem.h" />
+    <ClInclude Include="SystemManager.h" />
+    <ClInclude Include="TextComponent.h" />
+    <ClInclude Include="TextSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ISystem.cpp" />
+    <ClCompile Include="SystemManager.cpp" />
+    <ClCompile Include="TextSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
