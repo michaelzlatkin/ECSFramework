@@ -1,12 +1,11 @@
 #pragma once
 
 #include "EngineConstants.h"
-#include "IComponentManager.h"
 
 //TODO: ComponentManagerManager?
 
-template <class Component>
-class ComponentManager : public IComponentManager
+template <typename Component>
+class ComponentManager
 {
 public:
 
@@ -16,34 +15,19 @@ public:
 	~ComponentManager() = default;
 
 	//Templated function so definition is in the header
-	void AddComponent(unsigned int ID, Component &component)
+	void AddComponent(unsigned int &ID, Component &component)
 	{
-		componentArray[ID] = new Component{ component };
+		//This is faster than doing 'new', we make everything on the stack
+		std::swap(mComponentArray[ID], component);
 	}
 
-	void DeleteComponent(unsigned int ID) override
+	//We want to return a pointer so the user can feed it into their array of pointer constructor directly
+	//This allows the system to make changes to the data in the components
+	Component* GetComponents()
 	{
-		//We have a EntityManager::freedEntities which we can use to not do this check, but this is faster than
-		//doing std::find on a list for every entity created for every componentManager
-		if (componentArray[ID])
-		{
-			delete componentArray[ID];
-			componentArray[ID] = nullptr;
-		}
-	}
-
-	//We want to return a pointer to a pointer so the user can feed it into their array of pointer constructor directly
-	Component** GetComponents()
-	{
-		return componentArray;
+		return &mComponentArray[0];
 	}
 
 private:
-	Component* componentArray[MAX_ENTITIES];
-
-	//Rule of 5
-	ComponentManager(const ComponentManager &other) = delete;
-	ComponentManager(ComponentManager &&other) = delete;
-	ComponentManager operator=(const ComponentManager &other) = delete;
-	ComponentManager operator=(ComponentManager &&other) = delete;
+	Component mComponentArray[MAX_ENTITIES];
 };

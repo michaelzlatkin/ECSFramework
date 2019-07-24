@@ -11,10 +11,10 @@ public:
 	~GameLoop() = default;
 
 	//if true, we exit the application
-	bool Update(float deltaTime);
+	bool Update(const float &deltaTime);
 
 private:
-	EntityManager entityManager;
-	SystemManager systemManager;
-	ComponentManager<TextComponent> textComponentManager;
+	EntityManager mEntityManager;
+	SystemManager mSystemManager;
+	ComponentManager<TextComponent> mTextComponentManager;
 };

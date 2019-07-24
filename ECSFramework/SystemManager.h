@@ -7,16 +7,16 @@ class SystemManager final
 public:
 	SystemManager() = default;
 
-	virtual ~SystemManager();
+	~SystemManager();
 
 	void AddSystem(ISystem* system);
 
 	//We pass along the entityIndex so we don't do a lot of checks for nullptrs unnecessarily
-	void UpdateSystems(float deltaTime, unsigned int entityIndex);
+	void UpdateSystems(const float &deltaTime, const unsigned int &entityIndex);
 	
 private:
-	ISystem* systems[MAX_SYSTEMS];
-	int index;
+	ISystem* mSystems[MAX_SYSTEMS];
+	int mIndex;
 
 	//Rule of 5
 	SystemManager(const SystemManager &other) = delete;

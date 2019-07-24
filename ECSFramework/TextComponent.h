@@ -4,5 +4,5 @@
 //Components are strictly POD's in ECS
 struct TextComponent
 {
-	std::string text;
+	std::string mText;
 };

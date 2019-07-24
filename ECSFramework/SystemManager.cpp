@@ -6,8 +6,8 @@ SystemManager::~SystemManager()
 {
 	for (int i = 0; i < MAX_SYSTEMS; i++)
 	{
-		delete systems[i];
-		systems[i] = nullptr;
+		delete mSystems[i];
+		mSystems[i] = nullptr;
 	}
 }
 
@@ -15,10 +15,11 @@ void SystemManager::AddSystem(ISystem* system)
 {
 	try
 	{
-		if (index < MAX_SYSTEMS)
+		if (mIndex < MAX_SYSTEMS)
 		{
-			systems[index] = system;
-			index++;
+			mSystems[mIndex] = system;
+			mSystems[mIndex]->SetIsActive(true);
+			mIndex++;
 		}
 		else
 		{
@@ -31,13 +32,13 @@ void SystemManager::AddSystem(ISystem* system)
 	}
 }
 
-void SystemManager::UpdateSystems(float deltaTime, unsigned int entityIndex)
+void SystemManager::UpdateSystems(const float &deltaTime, const unsigned int &entityIndex)
 {
-	for (int i = 0; i < index; i++)
+	for (int i = 0; i < mIndex; i++)
 	{
-		if (systems[i] && systems[i]->GetIsActive())
+		if (mSystems[i] && mSystems[i]->GetIsActive())
 		{
-			systems[i]->Update(deltaTime, entityIndex);
+			mSystems[i]->Update(deltaTime, entityIndex);
 		}
 		else break;
 	}

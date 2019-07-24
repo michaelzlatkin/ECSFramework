@@ -1,16 +1,16 @@
 #include "TextSystem.h"
 #include "TextComponent.h"
 
-TextSystem::TextSystem(TextComponent ** components) :
-	textComponents{*components}
+TextSystem::TextSystem(TextComponent * components) :
+	mTextComponents{components}
 {
 }
 
-void TextSystem::Update(float deltaTime, unsigned int entityIndex)
+void TextSystem::Update(const float &deltaTime, const unsigned int &entityIndex)
 {
-	for (int i = 0; i < entityIndex; i++)
+	for (unsigned int i = 0; i < entityIndex; i++)
 	{
-		if(textComponents[i])
-		std::cout << textComponents[i]->text;
+		if(mTextComponents[i])
+		std::cout << mTextComponents[i]->mText;
 	}
 }

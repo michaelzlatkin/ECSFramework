@@ -4,15 +4,20 @@
 
 void ISystem::Start()
 {
-	isActive = true;
+	mIsActive = true;
 }
 
 void ISystem::End()
 {
-	isActive = false;
+	mIsActive = false;
 }
 
-bool ISystem::GetIsActive()
+const bool ISystem::GetIsActive()
 {
-	return isActive;
+	return mIsActive;
+}
+
+void ISystem::SetIsActive(bool isActive)
+{
+	mIsActive = isActive;
 }

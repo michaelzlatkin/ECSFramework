@@ -3,18 +3,14 @@
 #include <iostream>
 #include "TextComponent.h"
 
-class TextSystem : public ISystem
+class TextSystem final : public ISystem
 {
 public:
-	TextSystem(TextComponent** components);
-	void Update(float deltaTime, unsigned int entityIndex) override;
+	TextSystem(TextComponent* components);
+	//Don't clean up the mTextComponents array
+	//	the textcomponentmanager owns it and it's on the stack
+	~TextSystem() = default;
+	void Update(const float &deltaTime, const unsigned int &entityIndex) override;
 private:
-	//CRITICAL TODO: Move data out of the system, this is NOT congruent with ECS!
-	TextComponent* textComponents[MAX_ENTITIES];
-
-	//Rule of 5
-	TextSystem(const TextSystem &other) = delete;
-	TextSystem(TextSystem &&other) = delete;
-	TextSystem operator=(const TextSystem &other) = delete;
-	TextSystem operator=(TextSystem &&other) = delete;
+	TextComponent* mTextComponents[MAX_ENTITIES];
 };
